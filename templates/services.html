@@ -8,6 +8,12 @@
   <link rel="preload" as="image" href="../offer.jpeg" type="image/jpeg" />
   <link rel="stylesheet" href="../style.css" />
   <link rel="stylesheet" href="../static/services.css" />
+  <script>
+    if (sessionStorage.getItem("theologos-page-transition") === "true") {
+      sessionStorage.removeItem("theologos-page-transition");
+      document.documentElement.classList.add("page-transitioning");
+    }
+  </script>
   <title data-i18n-title="menu_title">Services &amp; Prices | Theologos Barber</title>
 </head>
 <body class="service-menu-page">

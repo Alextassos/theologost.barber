@@ -165,6 +165,38 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  document.addEventListener("click", event => {
+    if (
+      event.defaultPrevented ||
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey ||
+      !(event.target instanceof Element)
+    ) {
+      return;
+    }
+
+    const link = event.target.closest("a[href]");
+    if (!link || link.target === "_blank") {
+      return;
+    }
+
+    const destination = new URL(link.href, window.location.href);
+    if (
+      destination.origin === window.location.origin &&
+      destination.pathname !== window.location.pathname
+    ) {
+      window.sessionStorage.setItem("theologos-page-transition", "true");
+    }
+  });
+
+  if (window.sessionStorage.getItem("theologos-page-transition") === "true") {
+    window.sessionStorage.removeItem("theologos-page-transition");
+    document.documentElement.classList.add("page-transitioning");
+  }
+
   document.body.classList.add("page-loaded");
 
   const applyLanguage = language => {

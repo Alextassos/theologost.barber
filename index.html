@@ -8,6 +8,12 @@
   <link rel="preload" as="image" href="barber.jpg" type="image/jpeg" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="static/services.css" />
+  <script>
+    if (sessionStorage.getItem("theologos-page-transition") === "true") {
+      sessionStorage.removeItem("theologos-page-transition");
+      document.documentElement.classList.add("page-transitioning");
+    }
+  </script>
   <title data-i18n-title="home_title">Theologos Barber | Piraeus</title>
 </head>
 <body>
