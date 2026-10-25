@@ -428,7 +428,31 @@
 .service-price-section > .service-menu-button {
   display: flex;
   width: fit-content;
-  margin: 36px auto 0;
+  min-height: 46px;
+  gap: 14px;
+  margin: 32px auto 0;
+  padding: 11px 22px;
+  border-color: rgba(216, 194, 158, 0.62);
+  background: linear-gradient(135deg, rgba(216, 194, 158, 0.16), rgba(216, 194, 158, 0.07));
+  color: #eee5d6;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.service-price-section > .service-menu-button span:first-child {
+  font-size: inherit;
+}
+
+.service-price-section > .service-menu-button span:last-child {
+  color: #d2b68c;
+  font-size: 18px;
+}
+
+.service-price-section > .service-menu-button:hover {
+  border-color: rgba(216, 194, 158, 0.86);
+  background: linear-gradient(135deg, rgba(216, 194, 158, 0.24), rgba(216, 194, 158, 0.12));
 }
 
 .service-menu-footer {
