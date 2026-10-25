@@ -27,18 +27,40 @@
 }
 
 .service-preview-grid {
+  position: relative;
+  isolation: isolate;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
   text-align: left;
 }
 
+.service-preview-scissors {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  width: min(40vw, 440px);
+  height: auto;
+  overflow: visible;
+  color: #c7b08b;
+  opacity: 0.3;
+  pointer-events: none;
+  transform: translate(-50%, -50%) rotate(-8deg);
+}
+
+.service-preview-scissors g {
+  stroke-width: 3;
+}
+
 .service-preview-card {
+  position: relative;
+  z-index: 0;
   min-width: 0;
   padding: 24px 21px;
   border: 1px solid rgba(216, 194, 158, 0.2);
   border-radius: 12px;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.025));
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0.01));
   transition: transform 220ms ease, border-color 220ms ease, background-color 220ms ease;
 }
 
@@ -487,6 +509,10 @@
   .service-preview-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .service-preview-scissors {
+    width: min(50vw, 320px);
+  }
 }
 
 @media (max-width: 650px) {
@@ -521,6 +547,10 @@
 
   .service-preview-card {
     padding: 20px 16px;
+  }
+
+  .service-preview-scissors {
+    width: min(66vw, 250px);
   }
 
   .service-menu-header {
