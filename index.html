@@ -64,7 +64,30 @@
     <section id="about">
       <div id="info">
         <div class="about-text">
-          <h2 id="title2" data-i18n="about_title">About us</h2>
+          <div class="about-heading">
+            <svg class="about-lamp" viewBox="0 0 150 220" aria-hidden="true" focusable="false">
+              <defs>
+                <linearGradient id="about-lamp-beam" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#e6d5b9" stop-opacity=".24" />
+                  <stop offset="1" stop-color="#e6d5b9" stop-opacity="0" />
+                </linearGradient>
+                <radialGradient id="about-lamp-glow">
+                  <stop offset="0" stop-color="#e6d5b9" stop-opacity=".24" />
+                  <stop offset="1" stop-color="#e6d5b9" stop-opacity="0" />
+                </radialGradient>
+              </defs>
+              <path d="M76 42 146 218H5L76 42Z" fill="url(#about-lamp-beam)" />
+              <ellipse cx="76" cy="55" rx="45" ry="30" fill="url(#about-lamp-glow)" />
+              <g fill="none" stroke="#c7b08b" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M76 17v10c0 5-4 8-9 8H55" stroke-width="3" />
+                <path d="M76 7v8M67 5v10M85 5v10" stroke-width="2" />
+                <path d="M48 35h56l-9 20H57l-9-20Z" fill="#c7b08b" fill-opacity=".16" stroke-width="2" />
+                <path d="M57 55h38" stroke-width="2" />
+                <path d="M67 60h18" stroke="#e6d5b9" stroke-opacity=".75" stroke-width="2" />
+              </g>
+            </svg>
+            <h2 id="title2" data-i18n="about_title">About us</h2>
+          </div>
           <p class="about-paragraph" data-i18n="about_copy">
             Welcome to Theologos Barber. Est 2024, we blend traditional grooming with modern techniques.
             Experience a premium haircut and shave in a masculine, relaxing environment.

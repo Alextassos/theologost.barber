@@ -1,9 +1,10 @@
 :root {
   --font-body: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   --font-display: "Baskerville Old Face", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --page-background: #1c1c1b;
   color-scheme: dark;
   font-family: var(--font-body);
-  background: #171717;
+  background: var(--page-background);
   color: rgba(255, 255, 255, 0.82);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,7 +25,7 @@ h3 {
 body {
   min-height: 100vh;
   margin: 0;
-  background: #171717;
+  background: var(--page-background);
 }
 
 @view-transition {
@@ -68,6 +69,7 @@ a:focus-visible {
 
 #header {
   position: relative;
+  z-index: 1;
   isolation: isolate;
   display: flex;
   flex-direction: column;
@@ -92,7 +94,8 @@ a:focus-visible {
   z-index: 10;
   inset: 0 0 auto;
   padding: 10px 20px;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, backdrop-filter 0.3s ease;
 }
 
 #menu ul {
@@ -111,22 +114,25 @@ a:focus-visible {
   padding: 10px 8px;
   background: linear-gradient(to right, transparent, #a1d1d2, transparent) center bottom / 0% 1px no-repeat;
   color: rgba(255, 255, 255, 0.75);
-  font-size: clamp(14px, 1.8vw, 18px);
+  font-family: var(--font-display);
+  font-size: clamp(15px, 1.7vw, 17px);
   font-weight: 400;
-  letter-spacing: 0.035em;
+  letter-spacing: 0.045em;
   text-decoration: none;
-  transition: background-size 0.3s ease, color 0.3s ease;
+  transition: background-size 0.3s ease, color 0.3s ease, letter-spacing 0.3s ease;
 }
 
 #menu ul li a:hover {
   background-size: 100% 1px;
   color: #fff;
+  letter-spacing: 0.06em;
 }
 
 #menu.scrolled {
-  background: rgba(17, 17, 17, 0.95);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(5px);
+  border-bottom-color: rgba(216, 194, 158, 0.12);
+  background: rgba(28, 28, 27, 0.78);
+  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(10px);
 }
 
 #menu.scrolled ul {
@@ -226,6 +232,31 @@ main > section {
   padding: 80px 24px;
 }
 
+#about {
+  position: relative;
+}
+
+#about::before,
+#about::after {
+  position: absolute;
+  left: 50%;
+  width: min(100% - 48px, 1100px);
+  height: 9px;
+  background:
+    radial-gradient(circle, rgba(199, 209, 208, 0.88) 0 2px, transparent 2.8px) center / 9px 9px no-repeat,
+    linear-gradient(to right, transparent, rgba(176, 194, 201, 0.4), transparent) center / 100% 1px no-repeat;
+  content: "";
+  transform: translateX(-50%);
+}
+
+#about::before {
+  top: 20px;
+}
+
+#about::after {
+  bottom: 20px;
+}
+
 .experience {
   padding: 20px 24px 72px;
 }
@@ -309,6 +340,46 @@ main > section {
   flex: 1;
 }
 
+.about-text {
+  position: relative;
+  isolation: isolate;
+}
+
+.about-heading,
+.about-paragraph {
+  position: relative;
+  z-index: 1;
+}
+
+.about-text::before {
+  position: absolute;
+  z-index: -1;
+  inset: -18px 0;
+  background: radial-gradient(ellipse at 35% 48%, rgba(176, 194, 201, 0.1), transparent 70%);
+  content: "";
+  filter: blur(20px);
+  pointer-events: none;
+}
+
+.about-lamp {
+  position: absolute;
+  z-index: 0;
+  top: -58px;
+  left: 54%;
+  width: 86px;
+  height: auto;
+  overflow: visible;
+  opacity: 0.9;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.about-heading {
+  position: relative;
+  isolation: isolate;
+  width: fit-content;
+}
+
 #title2,
 #title3 {
   display: inline-block;
@@ -319,6 +390,13 @@ main > section {
   font-size: clamp(30px, 5vw, 40px);
   font-weight: 400;
   letter-spacing: 0.01em;
+}
+
+#title2 {
+  color: #c7d1d0;
+  font-style: italic;
+  letter-spacing: 0.025em;
+  background-image: linear-gradient(to right, transparent, rgba(199, 209, 208, 0.72), transparent);
 }
 
 .about-paragraph,
@@ -715,6 +793,12 @@ html:not(.page-transitioning) body.page-loaded {
 
   .contact-card {
     padding: 20px 18px;
+  }
+
+  .about-lamp {
+    top: -56px;
+    left: 54%;
+    width: 74px;
   }
 }
 
