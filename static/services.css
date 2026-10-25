@@ -36,16 +36,16 @@
 .service-preview-card {
   min-width: 0;
   padding: 24px 21px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(216, 194, 158, 0.2);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.025);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.025));
   transition: transform 220ms ease, border-color 220ms ease, background-color 220ms ease;
 }
 
 .service-preview-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.28);
-  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(216, 194, 158, 0.38);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.085), rgba(255, 255, 255, 0.04));
 }
 
 .service-preview-card svg {
@@ -100,10 +100,31 @@
   transition: transform 220ms ease;
 }
 
+.service-preview .service-menu-button {
+  min-height: 44px;
+  gap: 12px;
+  margin-top: 30px;
+  padding: 10px 20px;
+  border-color: rgba(216, 194, 158, 0.42);
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 13px;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+}
+
+.service-preview .service-menu-button span:first-child {
+  font-size: inherit;
+}
+
+.service-preview .service-menu-button span:last-child {
+  color: #d2b68c;
+  font-size: 17px;
+}
+
 .service-menu-button:hover {
   transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.82);
-  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(216, 194, 158, 0.72);
+  background: rgba(216, 194, 158, 0.08);
 }
 
 .service-menu-button:hover span {
