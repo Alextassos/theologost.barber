@@ -419,7 +419,7 @@ main > section {
 }
 
 #contact {
-  padding: 56px 24px 24px;
+  padding: 60px 24px 52px;
 }
 
 .contact {
@@ -431,52 +431,58 @@ main > section {
 #title4 {
   display: flex;
   align-items: center;
-  gap: 20px;
-  margin: 0;
-  color: rgba(255, 255, 255, 0.68);
-  font-size: 24px;
+  gap: 14px;
+  margin: 0 0 24px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(25px, 3vw, 31px);
   font-weight: 400;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  letter-spacing: 0.025em;
 }
 
 #title4::before {
-  width: min(15vw, 150px);
+  flex: 0 1 clamp(44px, 12vw, 132px);
   height: 1px;
-  background: rgba(255, 255, 255, 0.2);
+  background: linear-gradient(to right, #d2b68c, rgba(210, 182, 140, 0.18));
   content: "";
 }
 
-#info2 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  width: min(100%, 500px);
-  margin: 36px auto 0;
-  padding: 30px 24px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.06);
-  text-align: center;
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
 }
 
-#clock {
-  width: min(100%, 360px);
-  margin-top: 8px;
-  text-align: left;
+.contact-card {
+  min-width: 0;
+  padding: clamp(20px, 3vw, 30px);
+  border: 1px solid rgba(216, 194, 158, 0.18);
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015));
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+}
+
+.contact-hours {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #time {
-  margin: 0 0 12px;
-  color: rgba(255, 255, 255, 0.86);
-  font-size: 19px;
+  margin: 0 0 14px;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--font-display);
+  font-size: 22px;
   font-weight: 400;
-  letter-spacing: 0.025em;
-  text-align: center;
+  letter-spacing: 0.02em;
 }
 
-#clock ul {
+#clock {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -486,43 +492,99 @@ main > section {
   display: flex;
   justify-content: space-between;
   gap: 16px;
-  padding: 7px 2px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 15px;
+  padding: 9px 2px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 13px;
+}
+
+#clock li:last-child {
+  border-bottom: 0;
 }
 
 #clock li span:last-child {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.88);
+  font-variant-numeric: tabular-nums;
   text-align: right;
+}
+
+.contact-action {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+}
+
+.contact-action > svg {
+  flex: 0 0 20px;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  fill: none;
+  stroke: #d2b68c;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
+}
+
+.contact-action > span {
+  display: grid;
+  gap: 5px;
+}
+
+.contact-action-label {
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.contact-action-value {
+  font-size: clamp(14px, 1.6vw, 16px);
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.contact-action:hover .contact-action-value {
+  color: #fff;
+}
+
+.contact-social {
+  display: grid;
+  justify-items: start;
+  gap: 10px;
+  margin-top: 4px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 #find {
   margin: 0;
-  color: rgba(255, 255, 255, 0.68);
-  font-size: 15px;
-  text-transform: lowercase;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 #social {
   display: flex;
-  justify-content: center;
-  gap: 14px;
+  gap: 10px;
 }
 
 .social-link {
   display: grid;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(216, 194, 158, 0.32);
   border-radius: 50%;
   color: rgba(255, 255, 255, 0.78);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .social-link:hover {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(216, 194, 158, 0.12);
   color: #fff;
 }
 
@@ -546,35 +608,7 @@ main > section {
 
 #odo,
 #til {
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 18px;
-  letter-spacing: 0.03em;
   text-decoration: none;
-}
-
-#odo:hover,
-#til:hover {
-  color: #fff;
-}
-
-#insta {
-  display: flex;
-  min-height: 44px;
-  align-items: center;
-  justify-content: center;
-  width: min(100%, 320px);
-  padding: 8px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  border-radius: 12px;
-  color: rgba(255, 255, 255, 0.75);
-  font-size: 17px;
-  text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-#insta:hover {
-  background: rgba(255, 255, 255, 0.12);
-  color: #fff;
 }
 
 .rights {
@@ -670,17 +704,16 @@ html:not(.page-transitioning) body.page-loaded {
   }
 
   #contact {
-    padding: 40px 20px 16px;
+    padding: 48px 20px 40px;
   }
 
-  #info2 {
-    margin-top: 28px;
-    padding: 24px 16px;
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
   }
 
-  #odo,
-  #til {
-    font-size: 16px;
+  .contact-card {
+    padding: 20px 18px;
   }
 }
 
