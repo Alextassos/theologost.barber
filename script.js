@@ -80,6 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
       service_camouflage_hair: "White Hair Camouflage (Hair)",
       service_camouflage_beard: "White Hair Camouflage (Beard)",
       service_face_mask: "Face Mask",
+      service_black_gold_mask: "Black/Gold Mask",
       address_footer: "Odyssea Androutsou 147 · Piraeus"
     },
     el: {
@@ -161,6 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
       service_camouflage_hair: "Κάλυψη λευκών τριχών (μαλλιά)",
       service_camouflage_beard: "Κάλυψη λευκών τριχών (γένια)",
       service_face_mask: "Μάσκα προσώπου",
+      service_black_gold_mask: "Μάσκα Black/Gold",
       address_footer: "Οδυσσέα Ανδρούτσου 147 · Πειραιάς"
     }
   };
